@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard — SecureAuth</title>
+  <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+  <nav>
+    <a class="brand" href="/">🔐 SecureAuth</a>
+    <div class="nav-links">
+      <a href="/profile">Profile</a>
+      {{#if_eq user.role "admin"}}<a href="/admin">Admin Panel</a>{{/if_eq}}
+      {{#if_eq user.role "manager"}}<a href="/manager">Manager Panel</a>{{/if_eq}}
+      {{#if_eq user.role "user"}}<a href="/user">My Area</a>{{/if_eq}}
+      <a href="/logout">Logout</a>
+    </div>
+  </nav>
+  <div class="container wide">
+    <div class="card" style="margin-top:2rem;">
+      <h1>👋 Welcome, {{user.name}}!</h1>
+      <p style="color:#94a3b8; margin-bottom:1.5rem;">You are successfully authenticated with 2FA.</p>
+
+      <div class="info-grid">
+        <div class="info-item">
+          <div class="label">Name</div>
+          <div class="value">{{user.name}}</div>
+        </div>
+        <div class="info-item">
+          <div class="label">Email</div>
+          <div class="value">{{user.email}}</div>
+        </div>
+        <div class="info-item">
+          <div class="label">Role</div>
+          <div class="value">
+            <span class="badge badge-{{user.role}}">{{user.role}}</span>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="label">2FA Status</div>
+          <div class="value" style="color:#22c55e;">✓ Enabled</div>
+        </div>
+      </div>
+
+      <div class="role-section" style="margin-top:2rem;">
+        <h3>Your Access Based on Role</h3>
+        {{#if_eq user.role "admin"}}
+        <ul class="perm-list">
+          <li>Access Admin Panel — full user management</li>
+          <li>Access Manager Panel</li>
+          <li>View all system data</li>
+          <li>Manage all users and roles</li>
+        </ul>
+        <div class="mt-2">
+          <a href="/admin" style="color:#60a5fa;">→ Go to Admin Panel</a>
+        </div>
+        {{/if_eq}}
+        {{#if_eq user.role "manager"}}
+        <ul class="perm-list">
+          <li>Access Manager Panel</li>
+          <li>View team reports</li>
+          <li>Manage team settings</li>
+        </ul>
+        <div class="mt-2">
+          <a href="/manager" style="color:#60a5fa;">→ Go to Manager Panel</a>
+        </div>
+        {{/if_eq}}
+        {{#if_eq user.role "user"}}
+        <ul class="perm-list">
+          <li>Access personal profile</li>
+          <li>View personal data</li>
+          <li>Update own settings</li>
+        </ul>
+        <div class="mt-2">
+          <a href="/user" style="color:#60a5fa;">→ Go to My Area</a>
+        </div>
+        {{/if_eq}}
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manager Panel — SecureAuth</title>
+  <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+  <nav>
+    <a class="brand" href="/">🔐 SecureAuth</a>
+    <div class="nav-links">
+      <a href="/dashboard">Dashboard</a>
+      <a href="/logout">Logout</a>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="card" style="margin-top:2rem;">
+      <h1>📊 Manager Panel</h1>
+      <p style="color:#94a3b8; margin-bottom:1.5rem;">
+        Welcome, {{user.name}} — <span class="badge badge-manager">manager</span>
+      </p>
+
+      <div class="role-section">
+        <h3>Manager Capabilities</h3>
+        <ul class="perm-list">
+          <li>View team performance reports</li>
+          <li>Manage team member assignments</li>
+          <li>Review pending requests</li>
+          <li>Generate team analytics</li>
+          <li>Access operational dashboards</li>
+        </ul>
+      </div>
+
+      <div class="info-grid" style="margin-top:1.5rem;">
+        <div class="info-item">
+          <div class="label">Team Members</div>
+          <div class="value">12</div>
+        </div>
+        <div class="info-item">
+          <div class="label">Pending Tasks</div>
+          <div class="value">5</div>
+        </div>
+        <div class="info-item">
+          <div class="label">Reports This Month</div>
+          <div class="value">8</div>
+        </div>
+        <div class="info-item">
+          <div class="label">Status</div>
+          <div class="value" style="color:#22c55e;">Active</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

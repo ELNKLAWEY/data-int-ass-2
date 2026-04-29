@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profile — SecureAuth</title>
+  <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+  <nav>
+    <a class="brand" href="/">🔐 SecureAuth</a>
+    <div class="nav-links">
+      <a href="/dashboard">Dashboard</a>
+      <a href="/logout">Logout</a>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="card" style="margin-top:2rem;">
+      <h1>👤 My Profile</h1>
+      <div class="info-grid">
+        <div class="info-item">
+          <div class="label">Full Name</div>
+          <div class="value">{{user.name}}</div>
+        </div>
+        <div class="info-item">
+          <div class="label">Email</div>
+          <div class="value">{{user.email}}</div>
+        </div>
+        <div class="info-item">
+          <div class="label">Role</div>
+          <div class="value"><span class="badge badge-{{user.role}}">{{user.role}}</span></div>
+        </div>
+        <div class="info-item">
+          <div class="label">2FA</div>
+          <div class="value" style="color:#22c55e;">✓ Enabled</div>
+        </div>
+        <div class="info-item">
+          <div class="label">Member Since</div>
+          <div class="value">{{user.created_at}}</div>
+        </div>
+        <div class="info-item">
+          <div class="label">User ID</div>
+          <div class="value">#{{user.id}}</div>
+        </div>
+      </div>
+      <div class="mt-3">
+        <a href="/dashboard" class="link">← Back to Dashboard</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

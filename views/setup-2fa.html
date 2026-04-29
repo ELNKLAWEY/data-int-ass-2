@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Setup 2FA — SecureAuth</title>
+  <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+  <nav>
+    <a class="brand" href="/">🔐 SecureAuth</a>
+  </nav>
+  <div class="container">
+    <div class="card">
+      <h1>📱 Setup Two-Factor Authentication</h1>
+      <p style="color:#94a3b8; margin-bottom:1rem;">Scan the QR code with Google Authenticator, Microsoft Authenticator, or Authy.</p>
+
+      {{#if error}}
+      <div class="alert alert-error">{{error}}</div>
+      {{/if}}
+
+      <div class="qr-container">
+        <img src="{{qrCodeUrl}}" alt="QR Code" width="200" height="200"/>
+      </div>
+
+      <p style="font-size:0.85rem; color:#64748b; text-align:center;">Can't scan? Enter this secret manually:</p>
+      <div class="secret-box">{{secret}}</div>
+
+      <form method="POST" action="/register/confirm-2fa">
+        <input type="hidden" name="userId" value="{{userId}}"/>
+        <div class="form-group">
+          <label>Enter the 6-digit code from your authenticator app</label>
+          <input type="text" name="token" placeholder="000000" maxlength="6" pattern="\d{6}" required
+                 style="text-align:center; font-size:1.5rem; letter-spacing:0.5rem;"/>
+        </div>
+        <button type="submit" class="btn btn-success">Verify & Complete Setup</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Panel — SecureAuth</title>
+  <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+  <nav>
+    <a class="brand" href="/">🔐 SecureAuth</a>
+    <div class="nav-links">
+      <a href="/dashboard">Dashboard</a>
+      <a href="/logout">Logout</a>
+    </div>
+  </nav>
+  <div class="container wide">
+    <div class="card" style="margin-top:2rem;">
+      <h1>🛡️ Admin Panel</h1>
+      <p style="color:#94a3b8; margin-bottom:1.5rem;">
+        Logged in as <span class="badge badge-admin">admin</span> — Full system access
+      </p>
+
+      <h2>All Registered Users</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>2FA</th>
+            <th>Registered</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each users}}
+          <tr>
+            <td>#{{this.id}}</td>
+            <td>{{this.name}}</td>
+            <td>{{this.email}}</td>
+            <td><span class="badge badge-{{this.role}}">{{this.role}}</span></td>
+            <td>{{#if this.totp_enabled}}✅ Yes{{else}}❌ No{{/if}}</td>
+            <td>{{this.created_at}}</td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
