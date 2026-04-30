@@ -1,6 +1,6 @@
 # Secure Authentication System
 
-A full-stack web application implementing a secure multi-layer authentication system built with Node.js and Express. This project was developed as part of the Data Integration course assignment.
+A full-stack web application implementing a secure multi-layer authentication system built with Node.js and Express. This project was developed as part of the Data Integrity course assignment.
 
 ---
 
@@ -8,7 +8,7 @@ A full-stack web application implementing a secure multi-layer authentication sy
 
 | Field       | Details                        |
 |-------------|--------------------------------|
-| **Course**  | Data Integration                |
+| **Course**  | Data Integrity                  |
 | **Instructor** | Eng. Yahya Ashraf Ahmed     |
 
 ---
